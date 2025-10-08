@@ -1,0 +1,13 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+    <h1>{{ event.title }}</h1>
+    <p>{{ event.description }}</p>
+    <p>Fecha: {{ event.date }}</p>
+    <p>Organizador: {{ event.organizer.username }}</p>
+    {% if user in event.attendees.all %}
+        <p>Ya estás registrado en este evento.</p>
+    {% else %}
+        <a href="{% url 'attend_event' event.pk %}">Asistir al evento</a>
+    {% endif %}
+{% endblock %}

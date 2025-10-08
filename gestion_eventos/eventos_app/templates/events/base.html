@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plataforma de Eventos</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Bienvenido, {{ user.username }} ({{ user.get_rol_display }}) | <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
