@@ -1,12 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LogoutView
 from eventos_app import views
+from eventos_app.views import CustomLoginView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('', views.HomeView.as_view(), name='home'),
     path('event/<int:pk>/', views.EventDetailView.as_view(), name='event_detail'),
     path('event/new/', views.EventCreateView.as_view(), name='event_create'),

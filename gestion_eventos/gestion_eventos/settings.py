@@ -102,7 +102,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'home'  # Redirige tras login
 LOGOUT_REDIRECT_URL = 'login'  # Redirige tras logout
 

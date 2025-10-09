@@ -5,9 +5,13 @@
     <p>{{ event.description }}</p>
     <p>Fecha: {{ event.date }}</p>
     <p>Organizador: {{ event.organizer.username }}</p>
+
     {% if user in event.attendees.all %}
         <p>Ya estás registrado en este evento.</p>
     {% else %}
-        <a href="{% url 'attend_event' event.pk %}">Asistir al evento</a>
+        <a href="{% url 'attend_event' event.pk %}" class="btn btn-primary">Asistir al evento</a>
     {% endif %}
+
+    <!-- Botón para volver a la lista de eventos -->
+    <a href="{% url 'home' %}" class="btn btn-secondary">Volver a la lista de eventos</a>
 {% endblock %}
